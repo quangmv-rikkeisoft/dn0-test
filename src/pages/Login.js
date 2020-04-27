@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useHistory, Redirect } from 'react-router-dom';
 
 
 const isAuthorization = () => {
   const token = localStorage.getItem("token") || "";
-  console.log(token)
   return token.length>0;
 }
 
@@ -41,4 +40,4 @@ const Login = (props) => {
   )
 }
 
-export default Login
+export default Login;

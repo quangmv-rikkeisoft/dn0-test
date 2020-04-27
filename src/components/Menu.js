@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-
-export const Menu = () => {
+const Menu = () => {
   const history = useHistory();
   return (
     <div>
@@ -9,8 +8,11 @@ export const Menu = () => {
       <ul id='menu'>
         <li><Link to="/dashboard">/dashboard</Link></li>
         <li><Link to="/setting">/setting</Link></li>
+        <li><Link to="/functions">/functions</Link></li>
+        <li><Link to="/functions/foo">/functions/foo</Link></li>
         <li><button data-test='logout__btn' onClick={()=> {localStorage.removeItem("token"); history.push('/login')}}>Logout</button></li>
       </ul>
     </div>
   )
 }
+export default memo(Menu);

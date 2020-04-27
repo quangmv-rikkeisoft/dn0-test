@@ -6,16 +6,15 @@ import PrivatePage from './pages/PrivatePage';
 function App () {
   return (
     <Router>
-      <Suspense fallback={<div>Loading...</div>}>
         <Switch>
           {
             routes.map((route) => (
               <Route key={`path${route.path}`} path={route.path} exact 
-              component={route.isProtected?PrivatePage(()=><route.component title={route.title} />):()=><route.component title={route.title} />} />
+              component={route.isProtected?PrivatePage(()=><route.component title={route.title} />)
+              :()=><Suspense fallback={<div>Loading...</div>}><route.component title={route.title} /></Suspense>} />
             ))
           }
         </Switch>
-      </Suspense>
     </Router>
   )
 }

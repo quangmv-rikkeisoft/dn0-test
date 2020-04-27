@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 
 const Functions = (props) => {
 
@@ -13,4 +13,4 @@ const Functions = (props) => {
   )
 }
 
-export default Functions
+export default Functions;

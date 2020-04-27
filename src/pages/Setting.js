@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const Setting = (props) => {
@@ -16,4 +16,4 @@ const Setting = (props) => {
   </div>
 }
 
-export default Setting
+export default Setting;
