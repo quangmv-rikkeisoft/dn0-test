@@ -1,27 +1,22 @@
-import React from 'react'
-import routes from './config/routes'
-
-const ExampleComponent = () => {
-  return (
-    <div>
-      Example Component
-      </div>
-  )
-}
+import React, { Suspense } from 'react';
+import routes from './config/routes';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import PrivatePage from './pages/PrivatePage';
 
 function App () {
   return (
-    <div>
-      {/* Bắt buộc phải sử dụng dynamic import dựa theo
-          file routes config (khi thêm bớt component thì chỉ sửa file config)
-          không cần sửa code tại đây
-      */}
-      {
-        routes.map((config) => {
-          return <ExampleComponent />
-        })
-      }
-    </div>
+    <Router>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          {
+            routes.map((route) => (
+              <Route key={`path${route.path}`} path={route.path} exact 
+              component={route.isProtected?PrivatePage(()=><route.component title={route.title} />):()=><route.component title={route.title} />} />
+            ))
+          }
+        </Switch>
+      </Suspense>
+    </Router>
   )
 }
 

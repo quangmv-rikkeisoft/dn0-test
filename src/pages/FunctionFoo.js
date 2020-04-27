@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-const FunctionFoo = () => {
+const FunctionFoo = (props) => {
+  
+  useEffect(() => {
+    document.title = props.title;
+  }, [props.title]);
+
   return (
     <p>
       Function Foo

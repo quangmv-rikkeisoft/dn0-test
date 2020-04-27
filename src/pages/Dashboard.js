@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+
+  useEffect(() => {
+    document.title = props.title;
+  }, [props.title]);
+
   return (
     <div>
       <p data-test='db__welcome'>
@@ -10,4 +15,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default Dashboard;

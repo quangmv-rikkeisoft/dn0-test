@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useLocation } from 'react-router-dom';
 
-const Setting = () => {
+const Setting = (props) => {
+
+  const location = useLocation();
+
+  useEffect(() => {
+    document.title = props.title;
+  }, [props.title]);
+  
+  const section = new URLSearchParams(location.search).get('section');
+
   return <div>
-    {/* Setting page - Section: FooSection */}
-    {/* Setting page */}
+    {section?`Setting page - Section: ${section}`: `Setting page`}
   </div>
 }
 
