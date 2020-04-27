@@ -1,9 +1,9 @@
 // isProtected: các route cần được bảo vệ
 // Có thể thêm giá trị vào đây
 
-import React, { lazy } from 'react';
-import { Redirect } from 'react-router-dom';
+import { lazy } from 'react';
 
+const Home = lazy(() => import('../pages/Home'));
 const Login = lazy(() => import('../pages/Login'));
 const Dashboard = lazy(() => import('../pages/Dashboard'));
 const Setting = lazy(() => import('../pages/Setting'));
@@ -13,8 +13,10 @@ const NotFound = lazy(() => import('../pages/NotFound'));
 
 export default [
   {
-    component: lazy(() => <Redirect to="/dashboard"/> ),
-    path: '/'
+    title: "",
+    component: Home,
+    path: '/',
+    isProtected: true
   },
   {
     title: 'Login Page | Sample App',

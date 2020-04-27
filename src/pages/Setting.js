@@ -12,7 +12,7 @@ const Setting = (props) => {
   const section = new URLSearchParams(location.search).get('section');
 
   return <div>
-    {section?`Setting page - Section: ${section}`: `Setting page`}
+    {section?<p>Setting page - Section: {section}</p>: <p>Setting page</p>}
   </div>
 }
 
